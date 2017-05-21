@@ -15,7 +15,7 @@ exports.register = (server, options, next) => {
         const date = request.params.date;
 
         if (!date.match(dateRegex)) {
-          return reply('Please enter a valid date');
+          return reply('404 Not Found');
         }
 
         return Request({
@@ -23,7 +23,7 @@ exports.register = (server, options, next) => {
           json: true
         })
         .then((response) => {
-          return reply(response);
+          return reply.view('media', response);
         });
       }
     }

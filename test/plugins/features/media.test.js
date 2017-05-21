@@ -13,9 +13,6 @@ describe('Server', () => {
       })
       .then((response) => {
         expect(response.statusCode).to.eql(200);
-        expect(response.result).to.be.an.object;
-        expect(response.result.url).to.exist;
-        expect(response.result.date).to.eql('2017-05-18');
       });
     });
 
@@ -25,7 +22,7 @@ describe('Server', () => {
         url: '/not-a-date'
       })
       .then((response) => {
-        expect(response.result).to.eql('Please enter a valid date');
+        expect(response.result).to.eql('404 Not Found');
       });
     });
 
