@@ -1,13 +1,10 @@
 'use strict';
 
-const Hapi       = require('hapi');
-const Swag       = require('swag');
-const Path       = require('path');
-const Handlebars = require('handlebars');
+const Hapi = require('hapi');
+const Path = require('path');
 
-const Config = require('../config');
-
-Swag.registerHelpers(Handlebars);
+const Handlebars = require('./libraries/handlebars');
+const Config     = require('../config');
 
 const server = new Hapi.Server({
   connections: {

@@ -1,7 +1,20 @@
-<section>
-  <h3 class="date">{{date}}</h3>
-  <img src={{url}} />
-  <h4 class="title">{{title}}</h4>
-  <p class="copyright">Image Credit & Copyright: {{copyright}}</p>
+<section class="media">
+  <h3 class="title">{{title}}</h3>
+  <h5 class="date">Date: {{date}}</h5>
+
+  {{#ifCond type "image"}}
+    <div class="media-image-container">
+      <img src={{url}} class="media-image">
+    </div>
+  {{else}}
+    <div class="media-video-container">
+      <iframe src={{url}} frameborder="0" allowfullscreen class="media-video"></iframe>
+    </div>
+  {{/ifCond}}
+
+  {{#if copyright}}
+    <p class="copyright">Copyright & Credit: {{copyright}}</p>
+  {{/if}}
+
   <p>{{description}}</p>
 </section>
