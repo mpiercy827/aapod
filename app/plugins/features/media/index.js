@@ -1,10 +1,8 @@
 'use strict';
 
-const Request = require('request-promise');
+const Controller = require('./controller');
 
-const Config = require('../../../config');
-
-const dateRegex = /\d{4}-\d{2}-\d{2}/
+const dateRegex = /\d{4}-\d{2}-\d{2}/;
 
 exports.register = (server, options, next) => {
   server.route({
@@ -18,12 +16,12 @@ exports.register = (server, options, next) => {
           return reply('404 Not Found');
         }
 
-        return Request({
-          uri: `http://aapod-api.herokuapp.com/media/${date}`,
-          json: true
-        })
+        return Controller.fetch(date)
         .then((response) => {
           return reply.view('media', response);
+        })
+        .catch((err) => {
+          return reply('404 Not Found');
         });
       }
     }
