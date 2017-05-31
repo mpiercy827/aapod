@@ -3,6 +3,18 @@
   background-color: #464646;
 }
 
+#content a {
+  color: #fffff0;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
 .media {
   width: 75%;
   margin: 0 auto;

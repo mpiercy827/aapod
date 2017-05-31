@@ -1,10 +1,12 @@
 'use strict';
 
-const Server = require('../../../app/server');
+const Moment = require('moment');
 
-describe('Server', () => {
+const Server = require('../../../../app/server');
 
-  describe('retrieve', () => {
+describe('Media integration test', () => {
+
+  describe('fetch endpoint', () => {
 
     it('fetches a response from the AAPOD API', () => {
       return Server.injectThen({
@@ -13,6 +15,18 @@ describe('Server', () => {
       })
       .then((response) => {
         expect(response.statusCode).to.eql(200);
+      });
+    });
+
+    it('returns a 404 on invalid dates', () => {
+      const date = Moment.utc().add(2, 'days').format('YYYY-MM-DD');
+
+      return Server.injectThen({
+        method: 'GET',
+        url: `/${date}`
+      })
+      .then((response) => {
+        expect(response.result).to.eql('404 Not Found');
       });
     });
 

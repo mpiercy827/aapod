@@ -12,6 +12,18 @@
     </div>
   {{/ifCond}}
 
+  <a class="left" href={{prevDate}}>
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous
+  </a>
+
+  {{#if nextDate}}
+    <a class="right" href={{nextDate}}>
+      Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    </a>
+  {{/if}}
+
+  <br>
+
   {{#if copyright}}
     <p class="copyright">Copyright & Credit: {{copyright}}</p>
   {{/if}}
