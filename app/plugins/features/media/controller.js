@@ -4,9 +4,11 @@ const Moment  = require('moment');
 const Promise = require('bluebird');
 const Request = require('request-promise');
 
+const Config = require('../../../../config');
+
 exports.fetchLatest = () => {
   return Request({
-    uri: `http://aapod-api.herokuapp.com/media/latest`,
+    uri: `${Config.API_HOST}/media/latest`,
     json: true
   })
   .then((response) => {
@@ -38,7 +40,7 @@ exports.fetch = (date) => {
   }
 
   return Request({
-    uri: `http://aapod-api.herokuapp.com/media/${date}`,
+    uri: `${Config.API_HOST}/media/${date}`,
     json: true
   })
   .then((response) => {
