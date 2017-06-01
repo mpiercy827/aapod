@@ -1,8 +1,11 @@
 'use strict';
 
+const Moment = require('moment');
+
 const Controller = require('./controller');
 
-const dateRegex = /\d{4}-\d{2}-\d{2}/;
+const DateRegex = /\d{4}-\d{2}-\d{2}/;
+const PacificOffsetHours = -7;
 
 exports.register = (server, options, next) => {
   server.route({
@@ -12,7 +15,7 @@ exports.register = (server, options, next) => {
       handler: (request, reply) => {
         const date = request.params.date;
 
-        if (!date.match(dateRegex)) {
+        if (!date.match(DateRegex)) {
           return reply('404 Not Found');
         }
 
@@ -23,6 +26,18 @@ exports.register = (server, options, next) => {
         .catch((err) => {
           return reply('404 Not Found');
         });
+      }
+    }
+  });
+
+  server.route({
+    method: 'GET',
+    path: '/',
+    config: {
+      handler: (request, reply) => {
+        const date = Moment.utc().add(PacificOffsetHours, 'hours').format('YYYY-MM-DD');
+
+        return reply.redirect(`/${date}`);
       }
     }
   });

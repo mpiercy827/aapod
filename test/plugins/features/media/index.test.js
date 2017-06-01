@@ -18,6 +18,16 @@ describe('Media integration test', () => {
       });
     });
 
+    it('redirects to current date if none provided', () => {
+      return Server.injectThen({
+        method: 'GET',
+        url: '/'
+      })
+      .then((response) => {
+        expect(response.statusCode).to.eql(302);
+      });
+    });
+
     it('returns a 404 on invalid dates', () => {
       const date = Moment.utc().add(2, 'days').format('YYYY-MM-DD');
 

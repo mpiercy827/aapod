@@ -6,7 +6,7 @@ const Request = require('request-promise');
 
 exports.fetch = (date) => {
   const currentDate = Moment.utc().startOf('day');
-  const inputDate   = Moment.utc(date);
+  const inputDate   = Moment.utc(date).startOf('day');
 
   if (inputDate > currentDate) {
     return Promise.reject('Invalid Date');
