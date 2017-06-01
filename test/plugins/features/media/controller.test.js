@@ -17,7 +17,7 @@ describe('Media Controller', () => {
       });
     });
 
-    it('does not fetch nextDate for current date', () => {
+    it('does not fetch nextDate for current date (in Pacific Timezone)', () => {
       const date = Moment.utc().format('YYYY-MM-DD');
 
       return Controller.fetch(date)
