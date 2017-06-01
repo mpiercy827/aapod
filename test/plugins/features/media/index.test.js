@@ -8,6 +8,16 @@ describe('Media integration test', () => {
 
   describe('fetch endpoint', () => {
 
+    it('fetches the latest media from the AAPOD API', () => {
+      return Server.injectThen({
+        method: 'GET',
+        url: '/'
+      })
+      .then((response) => {
+        expect(response.statusCode).to.eql(200);
+      });
+    });
+
     it('fetches a response from the AAPOD API', () => {
       return Server.injectThen({
         method: 'GET',

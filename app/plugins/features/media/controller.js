@@ -4,6 +4,20 @@ const Moment  = require('moment');
 const Promise = require('bluebird');
 const Request = require('request-promise');
 
+exports.fetchLatest = () => {
+  return Request({
+    uri: `http://aapod-api.herokuapp.com/media/latest`,
+    json: true
+  })
+  .then((response) => {
+    const dates = {
+      prevDate: Moment.utc(response.date).subtract(1, 'days').format('YYYY-MM-DD')
+    };
+
+    return Object.assign(response, dates);
+  });
+};
+
 exports.fetch = (date) => {
   const currentDate = Moment.utc().startOf('day');
   const inputDate   = Moment.utc(date);

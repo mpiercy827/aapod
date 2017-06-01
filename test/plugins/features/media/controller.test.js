@@ -6,6 +6,19 @@ const Controller = require('../../../../app/plugins/features/media/controller');
 
 describe('Media Controller', () => {
 
+  describe('fetchLatest', () => {
+
+    it('fetches the latest media model from the AAPOD API', () => {
+      return Controller.fetchLatest()
+      .then((response) => {
+        expect(response.date).to.exist;
+        expect(response.prevDate).to.exist;
+        expect(response.nextDate).to.not.exist;
+      });
+    });
+
+  });
+
   describe('fetch', () => {
 
     it('fetches a response from the AAPOD API', () => {
