@@ -7,6 +7,23 @@ const dateRegex = /\d{4}-\d{2}-\d{2}/;
 exports.register = (server, options, next) => {
   server.route({
     method: 'GET',
+    path: '/',
+    config: {
+      handler: (request, reply) => {
+        return Controller.fetchLatest()
+        .then((response) => {
+          return reply.view('media', response);
+        })
+        .catch((err) => {
+          /* istanbul ignore next*/
+          return reply('404 Not Found');
+        });
+      }
+    }
+  });
+
+  server.route({
+    method: 'GET',
     path: '/{date}',
     config: {
       handler: (request, reply) => {
