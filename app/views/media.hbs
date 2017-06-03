@@ -1,32 +1,43 @@
-<section class="media">
-  <h3 class="title">{{title}}</h3>
-  <h5 class="date">Date: {{date}}</h5>
+<section class="media-container">
+  <div class="media">
+    <div class="row">
+      <div class="col-sm-9 col-md-9 col-lg-9 col-xl-9">
+        {{#ifCond type "image"}}
+          <div class="media-image-container">
+            <img src={{url}} class="media-image">
+          </div>
+        {{else}}
+          <div class="media-video-container">
+            <iframe src={{url}} frameborder="0" allowfullscreen class="media-video"></iframe>
+          </div>
+        {{/ifCond}}
+      </div>
 
-  {{#ifCond type "image"}}
-    <div class="media-image-container">
-      <img src={{url}} class="media-image">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+        <div class="media-text">
+          <h3 class="title">{{title}}</h3>
+          <h5 class="date">Date: {{date}}</h5>
+
+          {{#if copyright}}
+            <h6 class="copyright">Copyright & Credit: {{copyright}}</h6>
+          {{/if}}
+
+          <a class="left" href={{prevDate}}>
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous
+          </a>
+
+          {{#if nextDate}}
+            <a class="right" href={{nextDate}}>
+              Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+            </a>
+          {{/if}}
+
+          <br>
+
+          <p class="description">{{description}}</p>
+        </div>
+      </div>
     </div>
-  {{else}}
-    <div class="media-video-container">
-      <iframe src={{url}} frameborder="0" allowfullscreen class="media-video"></iframe>
-    </div>
-  {{/ifCond}}
 
-  <a class="left" href={{prevDate}}>
-    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>Previous
-  </a>
-
-  {{#if nextDate}}
-    <a class="right" href={{nextDate}}>
-      Next<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-    </a>
-  {{/if}}
-
-  <br>
-
-  {{#if copyright}}
-    <p class="copyright">Copyright & Credit: {{copyright}}</p>
-  {{/if}}
-
-  <p>{{description}}</p>
+  </div>
 </section>

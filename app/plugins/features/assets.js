@@ -3,6 +3,7 @@
 const Path = require('path');
 
 exports.register = (server, options, next) => {
+  /* istanbul ignore next */
   server.route({
     method: 'GET',
     path: '/css/{path*}',

@@ -1,0 +1,75 @@
+$navy: #18121e;
+$gunmetal: #233237;
+$red: #984b43;
+$yellow: #eac67a;
+$white: #fffff0;
+
+html,
+body,
+.main {
+  background-color: $navy;
+}
+
+.media-container {
+  background-color: $yellow;
+  border: 3px solid $red;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 3px;
+  width: 95%;
+}
+
+.media {
+  background-color: $white;
+  color: $gunmetal;
+  width: 100%;
+
+  a {
+    color: $gunmetal;
+
+    &:hover {
+      color: $navy;
+      text-decoration: none;
+    }
+  }
+}
+
+.media-image-container {
+  text-align: center;
+  width: 100%;
+}
+
+.media-image {
+  width: 100%;
+}
+
+.media-video-container {
+  height: 0;
+  padding-bottom: 28.25%;
+  padding-top: 28.25%;
+  position: relative;
+}
+
+.media-video {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.media-text {
+  width: 95%;
+}
+
+.description {
+  overflow-y: scroll;
+}
