@@ -1,0 +1,54 @@
+html,
+body,
+.main {
+  background-color: #18121e; }
+
+.media-container {
+  background-color: #eac67a;
+  border: 3px solid #984b43;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 3px;
+  width: 95%; }
+
+.media {
+  background-color: #fffff0;
+  color: #233237;
+  width: 100%; }
+  .media a {
+    color: #233237; }
+    .media a:hover {
+      color: #18121e;
+      text-decoration: none; }
+
+.media-image-container {
+  text-align: center;
+  width: 100%; }
+
+.media-image {
+  width: 100%; }
+
+.media-video-container {
+  height: 0;
+  padding-bottom: 28.25%;
+  padding-top: 28.25%;
+  position: relative; }
+
+.media-video {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.media-text {
+  width: 95%; }
+
+.description {
+  overflow-y: scroll; }
