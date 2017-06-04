@@ -1,5 +1,7 @@
 # AAPOD
 
+[![Build Status](https://travis-ci.org/mpiercy827/aapod.svg?branch=master)](https://travis-ci.org/mpiercy827/aapod)
+
 This is a simple front end to the [AAPOD API](https://github.com/mpiercy827/aapod-api).
 
 ## Notable Dependencies
@@ -16,10 +18,7 @@ This is a simple front end to the [AAPOD API](https://github.com/mpiercy827/aapo
 * `config/` - Configurations for test, development and production environments.
 * `test/` - Tests that cover everything in the `app/` directory.
 
-## Overview
-
-TODO
-
 ## Future Improvements
 
-* Migrate to React or other framework
+* Migrate to React or other frontend framework
+* Add calendar date picker
